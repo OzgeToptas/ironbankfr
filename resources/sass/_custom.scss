@@ -1,0 +1,88 @@
+body{
+	background-color: #d2e1ff;
+	
+}
+
+.d-flex {
+	align-items: center;
+    min-height: 100vh;
+
+.card-header{
+	background: #fabe02;
+}
+.card{
+	padding: 5px 5px;
+	border: none !important;
+}
+.card-header{
+    background: #fabe03 !important;
+    border-radius: 7px 7px 7px 7px !important;
+    position: relative;
+    z-index: 5;
+    border: none !important;
+}
+.collapse-body{
+	position: relative;
+    background: #dedede;
+    border-radius: 2px 2px 5px 5px;
+    margin-top: -10px;
+    z-index: 3;
+}
+label{
+	margin-bottom: 0 !important;
+	font-weight: bold !important;
+}
+.form-control {
+   border:none;
+   -webkit-border-radius:5px;
+   -moz-border-radius:5px;
+   border-radius:5px;
+   -webkit-box-shadow:0 0 5px #666 inset;
+   -moz-box-shadow:0 0 5px #666 inset;
+   box-shadow:0 0 5px #666 inset;
+   height:25px;
+   line-height:25px;
+   text-indent:5px;
+   height: calc(1.6em + 0.75rem + 2px);
+}
+
+textarea {
+    height: 139px !important;
+    width: 350px;
+}
+
+input:focus { outline:none; }
+
+.btn-next{
+	width: 150px;
+	background-color: #4b50b2 !important;
+	border-color: #4b50b2 !important;
+	border-radius: 7px;
+}
+
+h5 button{
+	color: white;
+}
+
+
+
+
+.card-one{
+	border-radius: 5px 5px 0 0;
+}
+.card-three{
+	border-radius: 0 0 5px 5px;
+}
+}
+
+.btn-next:after {
+	content:"\003e"; 
+}
+
+.js-error{
+	color: red;
+}
+
+
+
+
