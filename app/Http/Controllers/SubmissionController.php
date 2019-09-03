@@ -16,7 +16,7 @@ class SubmissionController extends Controller
      */
     public function index()
     {
-        //
+        return Submission::all();
     }
 
     /**
@@ -44,6 +44,8 @@ class SubmissionController extends Controller
             'email' => 'email',
             'telnumber' => ['required','regex:/^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/'],
             'dob' => ['required','regex:/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/'],
+            'previousrank'=> ['required','regex:/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/'],
+            'currentrank'=> ['required','regex:/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/'],
         ],
         [
             'dob.required' => 'Date of Birth is required',
@@ -53,6 +55,9 @@ class SubmissionController extends Controller
             'telnumber.required' => 'Phone Number should be a UK number',
             'dob.required' => 'Date of Birth is required',
             'dob.regex' => 'Date of Birth should follow the dd/mm/yyyy pattern',
+            'previousrank.required'=> 'Previous Rank is required',
+            'currentrank.required'=> 'Current Rank is required',
+
         ]);
 
         $submission->create($request->all());
@@ -70,7 +75,8 @@ class SubmissionController extends Controller
      */
     public function show(Submission $submission)
     {
-        //
+        $Submission = Submission::all();
+        return response()->json($Submission);
     }
 
     /**
@@ -102,8 +108,22 @@ class SubmissionController extends Controller
      * @param  \App\Submission  $submission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Submission $submission)
-    {
-        //
-    }
+
+     public function updatebyid(Request $request,$id)
+{
+    $Submission = Submission::find($id);
+    $Submission->name=$request->input('name');
+    $Submission->value=$request->input('value');
+
+    $Submission->save();
+    return response()->json($Submission);
+}
+
+public function deletebyid(Request $request,$id)
+{
+    $Submission = Submission::find($id);
+    $Submission->delete();
+
+    return response()->json($Submission);
+}
 }

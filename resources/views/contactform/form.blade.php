@@ -38,7 +38,7 @@
 		    <div class="card-header" id="headingOne">
 		      <h5 class="mb-0">
 		        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-		          Step 1: Your details
+		          Step 1: User details
 		        </button>
 		      </h5>
 		    </div>
@@ -88,7 +88,7 @@
 		        	<div class="row"> 
 		     		 <div class="col-md-4">	
 		     		 	<div class="form-group">
-		     			{{ Form::label('telnumber', 'Telephone Number')}}
+		     			{{ Form::label('telnumber', 'Telephone')}}
 		     			{{ Form::text('telnumber','',['class' => 'form-control']) }}
 		     			<span class="help-telnumber js-error">
 		     			</div>
@@ -117,6 +117,29 @@
 		     		<span class="help-dob js-error">
 		     		 </div>
 		     	</div>
+				 <div class="card-body">
+		        	<div class="row"> 
+		     		 <div class="col-md-2">	
+		     		 	<div class="form-group">
+		     			{{ Form::label('currentrank', 'Current Rank')}}
+		     			{{ Form::text('currentrank','',['class' => 'form-control']) }}
+		     			<span class="help-previousrank js-error">
+		     			</div>
+		     		 </div>
+					  
+		     		 </div>
+					  
+		        	<div class="row"> 
+		     		 <div class="col-md-2">	
+		     		 	<div class="form-group">
+		     			{{ Form::label('previousrank', 'Previous Rank')}}
+		     			{{ Form::text('previousrank','',['class' => 'form-control']) }}
+		     			<span class="help-previousrank js-error">
+		     			</div>
+		     		 </div>
+					 
+		     		 </div>
+				 
 		     	<div class="row">
 		     			<div class="col-md-12">
 		     			<div class="float-right"><button type="button" class="btn btn-primary btn-next" id="btnstep2">Next </button></div>
@@ -160,6 +183,8 @@
 		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		 <script src="{{ asset('/js/app.js') }}"></script>
 		 <script>
+
+		 
 
 		 $(document).ready(function () {	
 		$( "#btnstep1, #btnheadstep2" ).click(function() {
@@ -246,6 +271,13 @@
 				  		$('#dob').val(dob);
 				  }	
 				  
+				  if( !validateDob(dob)) {  
+				    errors += 1;
+				  	$('.help-previousrank').text("Your Rank should be number eg: 5");
+				  }	
+				  else{
+				  		$('#dob').val(dob);
+				  }	
 
 				  if( errors == 0 )
                   {

@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
 {
-	protected $fillable = ['fname','lname','email','telnumber','gender','dob','finalcomment'];
+	protected $fillable = ['fname','lname','email','telnumber','gender','currentrank','previousrank','dob','finalcomment'];
     //
 }
